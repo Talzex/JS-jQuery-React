@@ -17,6 +17,7 @@ function init() {
     validate.style.display = "none";
     validate.addEventListener("click", () => {
         let p = document.createElement("p");
+        p.style.textAlign = "center";
         p.textContent = "Votre score est de " + score;
         document.getElementsByTagName("body")[0].append(p);
     });
@@ -37,7 +38,7 @@ function init() {
     }
 
     document.addEventListener("keypress", (ev) => {
-        if(ev.key = "d"){
+        if(ev.key = "space"){
             for(i = 0; i<10; i++){
                 for(j = 0; j<10; j++){
                     let cell = univers[i][j];
@@ -45,7 +46,7 @@ function init() {
                 }
             }
         }
-    })
+    });
 }
 
 function creerUnivers() {
@@ -104,13 +105,14 @@ function resultatDuTir(cellule, vl, vc) {
 
 function atomeAleatoire() {
     var i = 0;
-    for (i = 0; i < 5; i++) {
+    do{
         var cell;
         let l = Math.floor(Math.random() * (univers.length - 2) + 1);
         let c = Math.floor(Math.random() * (univers.length - 2) + 1);
         cell = univers[l][c];
         cell.atome = true;
-    }
+        i++;
+    } while(i < 5)
 }
 
 function cellule(li, co) {
@@ -146,7 +148,6 @@ function cellule(li, co) {
     this.couleurAleatoire = function () {
         return '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
     }
-
 
     this.cote = function () {
         if (that.etat = -1) {
@@ -185,16 +186,18 @@ function cellule(li, co) {
             div.style.height = "100%";
             that.dom.append(div);
             that.etat = 1;
+            atomeClick++;
         } else {
             that.dom.removeChild(that.dom.firstElementChild)
             that.etat = 0;
+            atomeClick--;
         }
 
         if (!that.atome) {
             score += 5;
         }
 
-        if (++atomeClick >= 5) {
+        if (atomeClick == 5) {
             document.getElementById("validate").style.display = "inline-block"
         }
     }
