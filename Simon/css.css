@@ -1,0 +1,61 @@
+.back{
+    background-color: black;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+}
+.pad{
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    margin: 20px;
+}
+.shape1{
+    top:0;
+    left: 0;
+    background: rgb(0, 255, 0);
+    border-radius: 100% 0 0 0;
+}
+
+.shape2{
+    top: 0;
+    right: 0;
+    background: rgb(255, 255, 0);
+    border-radius: 0 100% 0 0;
+}
+
+.shape3{
+    bottom: 0;
+    left: 0;
+    background: rgb(255, 0, 0);
+    border-radius: 0 0 0 100%;
+    
+}
+
+.shape4{
+    bottom: 0;
+    right: 0;
+    background: rgb(0, 0, 255);
+    border-radius: 0 0 100% 0;
+    
+}
+.circle{
+    position: absolute;
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    top: 150px;
+    left:150px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.level{
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
