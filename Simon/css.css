@@ -4,6 +4,8 @@
     height: 500px;
     border-radius: 50%;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 .pad{
     position: absolute;
@@ -14,21 +16,21 @@
 .shape1{
     top:0;
     left: 0;
-    background: rgb(0, 255, 0);
+    background: green;
     border-radius: 100% 0 0 0;
 }
 
 .shape2{
     top: 0;
     right: 0;
-    background: rgb(255, 255, 0);
+    background: yellow;
     border-radius: 0 100% 0 0;
 }
 
 .shape3{
     bottom: 0;
     left: 0;
-    background: rgb(255, 0, 0);
+    background: red;
     border-radius: 0 0 0 100%;
     
 }
@@ -36,7 +38,7 @@
 .shape4{
     bottom: 0;
     right: 0;
-    background: rgb(0, 0, 255);
+    background: blue;
     border-radius: 0 0 100% 0;
     
 }
