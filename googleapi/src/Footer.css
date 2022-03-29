@@ -1,0 +1,9 @@
+:root{
+    --footer-bg-color : #133a43;
+}
+
+.Footer{
+    background-color: var(--footer-bg-color);
+    height: 10vh;
+}
+
