@@ -13,11 +13,6 @@ function startGame() {
     }
     
 }
-
-function randNum(min, max) {
-    return Math.round(Math.random() * (max - min)) + min;
-  }
-
 function RandomSequence() {
     let allPads = $(".pad")
     let pad = allPads[Math.floor(Math.random() * allPads.length)]
@@ -27,7 +22,7 @@ function RandomSequence() {
 
 function playSequence() {
     for (var i = 0; i < sequence.length; i++) {
-        var delayTime = i * 500;
+        var delayTime = i * 1000;
         setTimeout(AfficherSequence, delayTime);
     }
     animation = false;
@@ -36,9 +31,10 @@ function playSequence() {
 
 function AfficherSequence() {
     let pad = sequence.pop();
-    $(pad).children()[0].play();
+    console.log($(pad).children());
     $(pad).fadeTo(400, 0.5, function () {
-        $(this).fadeTo(400, 1, AfficherSequence);
+        $(this).fadeTo(400, 1,)
+        $(this).children()[0].play();
     });
     usedsequence.push(pad);
 }
@@ -49,18 +45,14 @@ function click(){
         var item = usedsequence.shift();
         $(this).children()[0].play();
         $(this).fadeTo(400, 0.5, function () {
-            let lenght = usedsequence.length
-            function checkLost() {
-                if(lenght == 0 && !lost){
+            function ckeckWin() {
+                if(usedsequence.length == 0 && !lost){
                     playing = false;
                     startGame();
-                    console.log("On recommence ")
                 }
             }
-            $(this).fadeTo(400, 1, checkLost);
+            $(this).fadeTo(400, 1, ckeckWin);
         });
-
-        
         var itemvalue = $(item).attr("class").split("shape")[1]
         var played = $(this).attr("class").split("shape")[1];
         if (itemvalue != played) {
@@ -68,15 +60,13 @@ function click(){
             sequence = []
             level = 0;
             playing = false;
-            $(".level").text("Vous avez perdu :(")
+            $(".level").text("GameOver !!")
         }
         sequence.push(item);
     }
-    
 }
 
 $(document).ready(function () {
-    
     $(".circle").on("click", startGame);
     $(".pad").on("click", click);
 });
