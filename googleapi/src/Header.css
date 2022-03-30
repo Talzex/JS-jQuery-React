@@ -1,0 +1,17 @@
+:root{
+    --header-bg-color : #133a43;
+}
+
+
+.Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg-color);
+    height: 10vh;
+}
+
+.Title-header{
+    color: white;
+    width: 15vw;
+}
