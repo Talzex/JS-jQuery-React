@@ -1,0 +1,19 @@
+.book{
+    display: flex;
+    width: 25vw;
+    border: 1px solid black;
+    margin: 5px 0;
+    background-color: #d4d5ea;
+    border-radius: 2%;
+}
+.img{
+    width: 150px;
+    height: 200px;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+}
+.title-year{
+    display: flex;
+}

@@ -5,5 +5,29 @@
 .Footer{
     background-color: var(--footer-bg-color);
     height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
+
+.Footer input{
+    color: white;
+    padding: 7px 10px;
+    border-radius: 4%;
+    background-color: rgb(158, 184, 199);  
+    font-weight: bold;
+}
+
+.Footer input:hover{
+    background: rgb(158 184 199 / 85%);
+}
+
+.Footer input:focus{
+    outline:3px solid rgb(158 184 199 / 50%);
+}
+
+.Footer input:disabled{
+    background:rgb(158 184 199 / 20%);
+}
+
 
