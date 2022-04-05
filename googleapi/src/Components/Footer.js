@@ -1,4 +1,4 @@
-import './Footer.css'
+import './css/Footer.css'
 
 const Footer = ({ pageNumber, maxPages, paginate }) => {
     let next = pageNumber === maxPages ? pageNumber : pageNumber + 1;
