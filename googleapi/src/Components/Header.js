@@ -1,13 +1,13 @@
 import './css/Header.css';
 import Searchbar from './Searchbar'
 
-const Header = ({query, setQuery}) => {
+const Header = ({setQuery, search}) => {
     return (
         <header className="Header">
             <h1 className="Title-header">GOOGLE API</h1>
             <Searchbar
-            query={query}
             setQuery={setQuery}
+            search={search}
             />
         </header>
     );

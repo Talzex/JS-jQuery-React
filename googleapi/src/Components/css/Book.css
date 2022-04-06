@@ -5,15 +5,17 @@
     margin: 5px 0;
     background-color: #d4d5ea;
     border-radius: 2%;
+    height: 30vh;
 }
 .img{
-    width: 150px;
-    height: 200px;
+    width: 10vw;
+    height: 25vh;
     margin : 3% 0% 0% 3%;
 }
 .text{
     display: flex;
     flex-direction: column;
+    width: 90vw;
 }
 
 a{
@@ -23,4 +25,17 @@ a{
 .title-year{
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+.title-year > h3{
+    font-size: 0.8rem;
+}
+
+.title{
+    font-size: 1rem;
+}
+
+.desc{
+    font-size: 0.9em;
 }

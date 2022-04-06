@@ -5,7 +5,7 @@ import Footer from './Components/Footer'
 import Library from './Components/Library';
 import axios from "axios"
 
-const book_per_page = 9;
+const book_per_page = 6;
 
 function App() {
 
@@ -16,37 +16,45 @@ function App() {
 
   useEffect(() => {
     axios
-    .get("https://www.googleapis.com/books/v1/volumes?q=Victor+Hugo&maxResults=40")
+    .get("https://www.googleapis.com/books/v1/volumes?q=Jules+Verne&maxResults=40")
     .then((res) => setBooks(res.data.items))
-
-
   },[]);
 
-  let myBooks = books
   const idLastBook = currentPage * booksPerPage;
   const idFirstBook = idLastBook - booksPerPage;
 
-  if(query != "") {
-    myBooks = books.filter(book => {
-        return book.volumeInfo.title.toLowerCase().includes(query.toLowerCase());
-    });
-}
+  let searchAuthors = (event) => {
+      event.preventDefault();
+      axios.get("https://www.googleapis.com/books/v1/volumes?q=inauthor:"+query+"&maxResults=40")
+      .then(function (response){
+        setBooks(response.data.items)
+      }).catch(function (error) {
+        console.log(error)
+      });
+  }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const currentBooks = myBooks.slice(idFirstBook, idLastBook);
+
+  let currentBooks = [];
+  let maxPage = 1;
+    if(books){
+        currentBooks = books.slice(idFirstBook, idLastBook);
+        maxPage = Math.ceil(books.length / booksPerPage);
+        console.log(maxPage)
+    }
+
   return (
     <div className="App">
       <Header
-        query={query}
         setQuery={setQuery}
+        search={searchAuthors}
       />
       <Library
         books={currentBooks}
-        query={query}
       />
       <Footer
         pageNumber={currentPage}
-        maxPages={Math.ceil(myBooks.length / booksPerPage)}
+        maxPages={maxPage}
         paginate={paginate}
       />
     </div>

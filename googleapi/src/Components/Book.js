@@ -1,6 +1,6 @@
 import './css/Book.css'
 
-const Book = ({ book,query }) => {
+const Book = ({ book }) => {
     let thumbnail =  "https://via.placeholder.com/150x200";
     if(book.volumeInfo.imageLinks) thumbnail = book.volumeInfo.imageLinks.thumbnail;
 
@@ -17,6 +17,9 @@ const Book = ({ book,query }) => {
     } else {
         summary = "Pas de description...";
     }
+
+    if (book.volumeInfo.title.length > 35)
+            title = book.volumeInfo.title.substring(0, 35) + "...";
 
     return (
         <div className="book">
